@@ -26,6 +26,8 @@ try:
     Vector_Random_Generation = cf.getboolean('vector_generator','Random_Generation')
     Vector_Autogrid_Generation = cf.getboolean('vector_generator','Autogrid_Generation')
 
+    Pythonsh_DIR = cf.get('auto_dock','pythonsh_dir')
+    Autodock_program_store_dir = cf.get('auto_dock','autodock_store_dir')
 
 except:
     raise AttributeError('Some configs cannot be found in config files!')
