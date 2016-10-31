@@ -1,7 +1,9 @@
 '''
-This file will set up python configuration from the file instead of setting it by static text
+This file will set up package common configuration from the file instead of setting it by static text
 It has advantage when the configuration needs to change rapidly.
 '''
+__author__='panzer_wy'
+
 import ConfigParser
 cf = ConfigParser.ConfigParser()
 
@@ -9,11 +11,20 @@ cf = ConfigParser.ConfigParser()
 cf.read('CONFIG.ini')
 
 try:
-    url_PREFIX =
-    sdf_PREFIX =
-    RCSB_pdb_PREFIX =
-    temp_data_PREFIX =
-    result_PREFIX =
+    url_PREFIX = cf.get('PDB','RCSB_url_prefix')
+
+    sdf_PREFIX = cf.get('SDF','sdf_rootdir')
+
+    RCSB_pdb_PREFIX = cf.get('PDB','RCSB_PDBdata_rootdir')
+
+    temp_data_PREFIX = cf.get('common','temp_rootdir')
+
+    result_PREFIX = cf.get('result','result_rootdir')
+
+    Vector_BOXsize = cf.getfloat('vector_generator','BOXsize')
+    Vector_BOXrange = cf.getfloat('vector_generator', 'BOXrange')
+    Vector_Random_Generation = cf.getboolean('vector_generator','Random_Generation')
+    Vector_Autogrid_Generation = cf.getboolean('vector_generator','Autogrid_Generation')
 
 
 except:
